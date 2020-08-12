@@ -7,5 +7,5 @@ MyDiary is an online journal where users can pen down their thoughts and feeling
 3. Users can view the contents of a diary entry.
 4. Users can add or modify an entry.
 
-##Optional Features
+## Optional Features
 1. Users can set and get daily notifications that prompt them to add an entry to their diary.
