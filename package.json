@@ -4,7 +4,8 @@
   "description": "MyDiary is an online journal where users can pen down their thoughts and feelings",
   "main": "index.js",
   "scripts": {
-    "test": "cd client and npm run coverage"
+    "test": "cd client and npm run coverage",
+    "install": "cd client and npm install"
   },
   "repository": {
     "type": "git",
