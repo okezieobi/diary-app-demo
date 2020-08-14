@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "cd client && npm run coverage",
-    "install": "cd client && npm install"
+    "ci": "cd client && npm ci",
+    "build": "cd client && npm build"
   },
   "repository": {
     "type": "git",
