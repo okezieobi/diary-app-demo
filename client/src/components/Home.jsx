@@ -11,6 +11,8 @@ import BookIcon from '@material-ui/icons/BookOutlined';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
+import Hidden from '@material-ui/core/Hidden';
+
 import HomeBGOne from '../images/Home_1.svg';
 import HomeBGTwo from '../images/Home_2.svg';
 import HomeBGThree from '../images/Home_3.svg';
@@ -18,6 +20,9 @@ import HomeBGThree from '../images/Home_3.svg';
 const useStyles = makeStyles((theme) => ({
   iconTitle: {
     marginRight: theme.spacing(1),
+    [theme.breakpoints.down('xs')]: {
+      flexGrow: '1',
+    },
   },
   title: {
     flexGrow: '1',
@@ -73,9 +78,13 @@ export default function ElevateAppBar({ window }) {
       <ElevationScroll window={window}>
         <AppBar>
           <Toolbar>
-            <BookIcon className={classes.iconTitle} />
-            <Typography className={classes.title} variant="h6">MyDiary</Typography>
-            <Link component="button" underline="none" href="/signup" color="inherit">
+            <Box className={classes.iconTitle}>
+              <BookIcon />
+            </Box>
+            <Hidden xsDown>
+              <Typography className={classes.title} variant="h6">MyDiary</Typography>
+            </Hidden>
+            <Link underline="none" href="/signup" color="inherit">
               <Typography variant="h6">Get Started</Typography>
             </Link>
           </Toolbar>
