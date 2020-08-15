@@ -10,6 +10,9 @@ test('renders landing page of app', () => {
       <AppTest />
     </MemoryRouter>,
   );
-  const linkElement = getByText(/Home/i);
-  expect(linkElement).toBeInTheDocument();
+  const homeTitle = getByText(/MyDiary/i);
+  const getStartedLink = getByText(/Get Started/i);
+
+  expect(homeTitle).toBeInTheDocument();
+  expect(getStartedLink).toBeInTheDocument();
 });

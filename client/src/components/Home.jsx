@@ -9,10 +9,34 @@ import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import BookIcon from '@material-ui/icons/BookOutlined';
 import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
+import HomeBGOne from '../images/Home_1.svg';
+import HomeBGTwo from '../images/Home_2.svg';
+import HomeBGThree from '../images/Home_3.svg';
 
 const useStyles = makeStyles((theme) => ({
   iconTitle: {
     marginRight: theme.spacing(1),
+  },
+  title: {
+    flexGrow: '1',
+  },
+  homeBackdrop1: {
+    backgroundImage: `url(${HomeBGOne})`,
+  },
+  homeBackdrop2: {
+    backgroundImage: `url(${HomeBGTwo})`,
+  },
+  homeBackdrop3: {
+    backgroundImage: `url(${HomeBGThree})`,
+  },
+  setBackground: {
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    width: '100vw',
+    height: '100vh',
+    backgroundSize: 'contain',
   },
 }));
 
@@ -50,21 +74,21 @@ export default function ElevateAppBar({ window }) {
         <AppBar>
           <Toolbar>
             <BookIcon className={classes.iconTitle} />
-            <Typography variant="h6">MyDiary</Typography>
+            <Typography className={classes.title} variant="h6">MyDiary</Typography>
+            <Link component="button" underline="none" href="/signup" color="inherit">
+              <Typography variant="h6">Get Started</Typography>
+            </Link>
           </Toolbar>
         </AppBar>
       </ElevationScroll>
       <Toolbar />
       <Container>
         <Box my={2}>
-          {[...new Array(12)]
-            .map(
-              () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
-            )
-            .join('\n')}
+          <Grid container>
+            <Grid item xs={12} className={`${classes.setBackground} ${classes.homeBackdrop2}`} />
+            <Grid item xs={12} className={`${classes.setBackground} ${classes.homeBackdrop3}`} />
+            <Grid item xs={12} className={`${classes.setBackground} ${classes.homeBackdrop1}`} />
+          </Grid>
         </Box>
       </Container>
     </>
