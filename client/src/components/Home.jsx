@@ -14,7 +14,15 @@ import Link from '@material-ui/core/Link';
 import Hidden from '@material-ui/core/Hidden';
 import Slide from '@material-ui/core/Slide';
 import Paper from '@material-ui/core/Paper';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import CardHeader from '@material-ui/core/CardHeader';
+import Button from '@material-ui/core/Button';
 import LockIcon from '@material-ui/icons/Lock';
+import HomeIcon from '@material-ui/icons/Home';
+import LocalConvenienceStoreIcon from '@material-ui/icons/LocalConvenienceStore';
+import TimerIcon from '@material-ui/icons/Timer';
 
 import HomeBGOne from '../images/Home_1.svg';
 import HomeBGTwo from '../images/Home_2.svg';
@@ -51,8 +59,12 @@ const useStyles = makeStyles((theme) => ({
   },
   description: {
     padding: theme.spacing(3),
+    opacity: 0.9,
   },
   gridItem: {
+    height: '30vh',
+  },
+  gridHeight: {
     height: '100vh',
   },
 }));
@@ -109,7 +121,7 @@ export default function ElevateAppBar({ window }) {
         <Box my={2}>
           <Grid container>
             <Grid item xs={12} className={`${classes.setBackground} ${classes.homeBackdrop2}`}>
-              <Grid className={classes.gridItem} alignItems="center" container>
+              <Grid className={classes.gridHeight} alignItems="center" container>
                 <Grid item xs={12} sm={4}>
                   <Paper className={classes.description}>
                     <Typography align="center" color="primary" variant="h4">My Diary App Demo</Typography>
@@ -122,40 +134,121 @@ export default function ElevateAppBar({ window }) {
               </Grid>
             </Grid>
             <Grid item xs={12} className={`${classes.setBackground} ${classes.homeBackdrop3}`}>
-              <Paper className={classes.description}>
-                <Typography gutterBottom color="primary" variant="h4">Features</Typography>
-                <Grid container justify="space-evenly" spacing={4}>
-                  <Grid item xs={12} sm={3}>
-                    <Toolbar>
-                      <LockIcon color="primary" className={classes.iconPadding} />
-                      <Typography color="primary" variant="h5">Safe</Typography>
-                    </Toolbar>
-                    <Container>
-                      <Typography color="primary" variant="h6">App is secure</Typography>
-                    </Container>
-                  </Grid>
-                  <Grid item xs={12} sm={3}>
-                    <Toolbar>
-                      <LockIcon color="primary" className={classes.iconPadding} />
-                      <Typography color="primary" variant="h5">Safe</Typography>
-                    </Toolbar>
-                    <Container>
-                      <Typography color="primary" variant="h6">App is secure</Typography>
-                    </Container>
-                  </Grid>
-                  <Grid item xs={12} sm={3}>
-                    <Toolbar>
-                      <LockIcon color="primary" className={classes.iconPadding} />
-                      <Typography color="primary" variant="h5">Safe</Typography>
-                    </Toolbar>
-                    <Container>
-                      <Typography color="primary" variant="h6">App is secure</Typography>
-                    </Container>
-                  </Grid>
+              <Grid className={classes.gridHeight} alignItems="center" container>
+                <Grid item xs={12}>
+                  <Paper className={classes.description}>
+                    <Typography gutterBottom color="primary" variant="h4">Features</Typography>
+                    <Grid container justify="space-evenly" spacing={4}>
+                      <Grid item xs={12} sm={3}>
+                        <Toolbar>
+                          <LockIcon color="primary" className={classes.iconPadding} />
+                          <Typography color="primary" variant="h5">Secure</Typography>
+                        </Toolbar>
+                        <Container>
+                          <Typography color="primary" variant="h6">App is secure</Typography>
+                        </Container>
+                      </Grid>
+                      <Grid item xs={12} sm={3}>
+                        <Toolbar>
+                          <HomeIcon color="primary" className={classes.iconPadding} />
+                          <Typography color="primary" variant="h5">Reliable</Typography>
+                        </Toolbar>
+                        <Container>
+                          <Typography color="primary" variant="h6">App is reliable</Typography>
+                        </Container>
+                      </Grid>
+                      <Grid item xs={12} sm={3}>
+                        <Toolbar>
+                          <LocalConvenienceStoreIcon color="primary" className={classes.iconPadding} />
+                          <Typography color="primary" variant="h5">Convenient</Typography>
+                        </Toolbar>
+                        <Container>
+                          <Typography color="primary" variant="h6">App is convenient</Typography>
+                        </Container>
+                      </Grid>
+                      <Grid item xs={12} sm={3}>
+                        <Toolbar>
+                          <TimerIcon color="primary" className={classes.iconPadding} />
+                          <Typography color="primary" variant="h5">Fast</Typography>
+                        </Toolbar>
+                        <Container>
+                          <Typography color="primary" variant="h6">No slow downs</Typography>
+                        </Container>
+                      </Grid>
+                    </Grid>
+                  </Paper>
                 </Grid>
-              </Paper>
+              </Grid>
             </Grid>
-            <Grid item xs={12} className={`${classes.setBackground} ${classes.homeBackdrop1}`} />
+            <Grid item xs={12} className={`${classes.setBackground} ${classes.homeBackdrop1}`}>
+              <Grid className={classes.gridHeight} alignItems="center" container>
+                <Grid item xs={12}>
+                  <Paper className={classes.description}>
+                    <Typography gutterBottom color="primary" variant="h4">Pricing</Typography>
+                    <Grid container justify="space-evenly" spacing={4}>
+                      <Grid item xs={12} sm={3}>
+                        <Card className={classes.gridItem}>
+                          <CardHeader title={
+                            <Typography color="primary" variant="h5">Test</Typography>
+                      }
+                          />
+                          <CardContent>
+                            <Typography color="primary" variant="h6">Test</Typography>
+                          </CardContent>
+                          <CardActions>
+                            <Button color="primary">Test Again</Button>
+                          </CardActions>
+                        </Card>
+                      </Grid>
+                      <Grid item xs={12} sm={3}>
+                        <Card className={classes.gridItem}>
+                          <CardHeader title={
+                            <Typography color="primary" variant="h5">Test</Typography>
+                      }
+                          />
+                          <CardContent>
+                            <Typography color="primary" variant="h6">Test</Typography>
+                          </CardContent>
+                          <CardActions>
+                            <Button color="primary">Test Again</Button>
+                          </CardActions>
+                        </Card>
+                      </Grid>
+                      <Grid item xs={12} sm={3}>
+                        <Card className={classes.gridItem}>
+                          <CardHeader title={
+                            <Typography color="primary" variant="h5">Test</Typography>
+                      }
+                          />
+                          <CardContent>
+                            <Typography color="primary" variant="h6">Test</Typography>
+                          </CardContent>
+                          <CardActions>
+                            <Button color="primary">Test Again</Button>
+                          </CardActions>
+                        </Card>
+                      </Grid>
+                      <Grid item xs={12} sm={3}>
+                        <Card className={classes.gridItem}>
+                          <CardHeader title={
+                            <Typography color="primary" variant="h5">Test</Typography>
+                      }
+                          />
+                          <CardContent>
+                            <Typography color="primary" variant="h6">Test</Typography>
+                          </CardContent>
+                          <CardActions>
+                            <Button color="primary">Test Again</Button>
+                          </CardActions>
+                        </Card>
+                      </Grid>
+                      <Grid />
+                      <Grid />
+                    </Grid>
+                  </Paper>
+                </Grid>
+              </Grid>
+            </Grid>
           </Grid>
         </Box>
       </Container>
