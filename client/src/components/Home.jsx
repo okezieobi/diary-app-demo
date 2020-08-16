@@ -12,6 +12,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import Hidden from '@material-ui/core/Hidden';
+import Slide from '@material-ui/core/Slide';
+import Paper from '@material-ui/core/Paper';
+import LockIcon from '@material-ui/icons/Lock';
 
 import HomeBGOne from '../images/Home_1.svg';
 import HomeBGTwo from '../images/Home_2.svg';
@@ -23,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       flexGrow: '1',
     },
+  },
+  iconPadding: {
+    marginRight: theme.spacing(2),
   },
   title: {
     flexGrow: '1',
@@ -43,6 +49,12 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
     backgroundSize: 'contain',
   },
+  description: {
+    padding: theme.spacing(3),
+  },
+  gridItem: {
+    height: '100vh',
+  },
 }));
 
 function ElevationScroll({ children, window }) {
@@ -56,7 +68,7 @@ function ElevationScroll({ children, window }) {
   });
 
   return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0,
+    elevation: trigger ? 8 : 0,
   });
 }
 
@@ -76,26 +88,73 @@ export default function ElevateAppBar({ window }) {
     <>
       <CssBaseline />
       <ElevationScroll window={window}>
-        <AppBar>
-          <Toolbar>
-            <Box className={classes.iconTitle}>
-              <BookIcon />
-            </Box>
-            <Hidden xsDown>
-              <Typography className={classes.title} variant="h6">MyDiary</Typography>
-            </Hidden>
-            <Link underline="none" href="/signup" color="inherit">
-              <Typography variant="h6">Get Started</Typography>
-            </Link>
-          </Toolbar>
-        </AppBar>
+        <Slide in>
+          <AppBar>
+            <Toolbar>
+              <Box className={classes.iconTitle}>
+                <BookIcon />
+              </Box>
+              <Hidden xsDown>
+                <Typography className={classes.title} variant="h6">MyDiary</Typography>
+              </Hidden>
+              <Link underline="none" href="/signup" color="inherit">
+                <Typography variant="h6">Get Started</Typography>
+              </Link>
+            </Toolbar>
+          </AppBar>
+        </Slide>
       </ElevationScroll>
       <Toolbar />
       <Container>
         <Box my={2}>
           <Grid container>
-            <Grid item xs={12} className={`${classes.setBackground} ${classes.homeBackdrop2}`} />
-            <Grid item xs={12} className={`${classes.setBackground} ${classes.homeBackdrop3}`} />
+            <Grid item xs={12} className={`${classes.setBackground} ${classes.homeBackdrop2}`}>
+              <Grid className={classes.gridItem} alignItems="center" container>
+                <Grid item xs={12} sm={4}>
+                  <Paper className={classes.description}>
+                    <Typography align="center" color="primary" variant="h4">My Diary App Demo</Typography>
+                    <Typography align="center" color="primary" variant="h6">
+                      Some really cool description of application,
+                      this is just filler
+                    </Typography>
+                  </Paper>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item xs={12} className={`${classes.setBackground} ${classes.homeBackdrop3}`}>
+              <Paper className={classes.description}>
+                <Typography gutterBottom color="primary" variant="h4">Features</Typography>
+                <Grid container justify="space-evenly" spacing={4}>
+                  <Grid item xs={12} sm={3}>
+                    <Toolbar>
+                      <LockIcon color="primary" className={classes.iconPadding} />
+                      <Typography color="primary" variant="h5">Safe</Typography>
+                    </Toolbar>
+                    <Container>
+                      <Typography color="primary" variant="h6">App is secure</Typography>
+                    </Container>
+                  </Grid>
+                  <Grid item xs={12} sm={3}>
+                    <Toolbar>
+                      <LockIcon color="primary" className={classes.iconPadding} />
+                      <Typography color="primary" variant="h5">Safe</Typography>
+                    </Toolbar>
+                    <Container>
+                      <Typography color="primary" variant="h6">App is secure</Typography>
+                    </Container>
+                  </Grid>
+                  <Grid item xs={12} sm={3}>
+                    <Toolbar>
+                      <LockIcon color="primary" className={classes.iconPadding} />
+                      <Typography color="primary" variant="h5">Safe</Typography>
+                    </Toolbar>
+                    <Container>
+                      <Typography color="primary" variant="h6">App is secure</Typography>
+                    </Container>
+                  </Grid>
+                </Grid>
+              </Paper>
+            </Grid>
             <Grid item xs={12} className={`${classes.setBackground} ${classes.homeBackdrop1}`} />
           </Grid>
         </Box>
