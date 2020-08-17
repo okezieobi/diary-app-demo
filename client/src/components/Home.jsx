@@ -59,13 +59,22 @@ const useStyles = makeStyles((theme) => ({
   },
   description: {
     padding: theme.spacing(3),
-    opacity: 0.9,
+    opacity: 0.95,
   },
   gridItem: {
     height: '30vh',
   },
   gridHeight: {
     height: '100vh',
+  },
+  bronzeFont: {
+    color: 'brown',
+  },
+  goldFont: {
+    color: 'orange',
+  },
+  platinumFont: {
+    color: 'gray',
   },
 }));
 
@@ -184,61 +193,61 @@ export default function ElevateAppBar({ window }) {
               <Grid className={classes.gridHeight} alignItems="center" container>
                 <Grid item xs={12}>
                   <Paper className={classes.description}>
-                    <Typography gutterBottom color="primary" variant="h4">Pricing</Typography>
+                    <Typography gutterBottom color="primary" variant="h4">Pricing plans</Typography>
                     <Grid container justify="space-evenly" spacing={4}>
                       <Grid item xs={12} sm={3}>
                         <Card className={classes.gridItem}>
                           <CardHeader title={
-                            <Typography color="primary" variant="h5">Test</Typography>
+                            <Typography className={classes.bronzeFont} variant="h5">Bronze</Typography>
                       }
                           />
                           <CardContent>
-                            <Typography color="primary" variant="h6">Test</Typography>
+                            <Typography className={classes.bronzeFont} variant="h6">Basic and free</Typography>
                           </CardContent>
                           <CardActions>
-                            <Button color="primary">Test Again</Button>
+                            <Button className={classes.bronzeFont}>Signup</Button>
                           </CardActions>
                         </Card>
                       </Grid>
                       <Grid item xs={12} sm={3}>
                         <Card className={classes.gridItem}>
                           <CardHeader title={
-                            <Typography color="primary" variant="h5">Test</Typography>
+                            <Typography variant="h5">Silver</Typography>
                       }
                           />
                           <CardContent>
-                            <Typography color="primary" variant="h6">Test</Typography>
+                            <Typography variant="h6">Premium but still free</Typography>
                           </CardContent>
                           <CardActions>
-                            <Button color="primary">Test Again</Button>
+                            <Button>Signup</Button>
                           </CardActions>
                         </Card>
                       </Grid>
                       <Grid item xs={12} sm={3}>
                         <Card className={classes.gridItem}>
                           <CardHeader title={
-                            <Typography color="primary" variant="h5">Test</Typography>
+                            <Typography className={classes.goldFont} variant="h5">Gold</Typography>
                       }
                           />
                           <CardContent>
-                            <Typography color="primary" variant="h6">Test</Typography>
+                            <Typography className={classes.goldFont} variant="h6">Even more premium but ... still free</Typography>
                           </CardContent>
                           <CardActions>
-                            <Button color="primary">Test Again</Button>
+                            <Button className={classes.goldFont}>Signup</Button>
                           </CardActions>
                         </Card>
                       </Grid>
                       <Grid item xs={12} sm={3}>
                         <Card className={classes.gridItem}>
                           <CardHeader title={
-                            <Typography color="primary" variant="h5">Test</Typography>
+                            <Typography className={classes.platinumFont} variant="h5">Platinum</Typography>
                       }
                           />
                           <CardContent>
-                            <Typography color="primary" variant="h6">Test</Typography>
+                            <Typography className={classes.platinumFont} variant="h6">Yep even more premium but still free</Typography>
                           </CardContent>
                           <CardActions>
-                            <Button color="primary">Test Again</Button>
+                            <Button className={classes.platinumFont}>Signup</Button>
                           </CardActions>
                         </Card>
                       </Grid>
