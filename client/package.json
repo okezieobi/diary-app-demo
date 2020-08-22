@@ -22,8 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test:no-watch": "npm run test -- --watchAll=false",
-    "coverage": "npm run test:no-watch -- --coverage"
+    "coverage": "npm run test -- --coverage"
   },
   "eslintConfig": {
     "extends": "react-app"
