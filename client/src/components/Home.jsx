@@ -115,8 +115,8 @@ export default function ElevateAppBar({ window }) {
               <Box className={classes.iconTitle}>
                 <BookIcon />
               </Box>
-              <Hidden xsDown>
-                <Typography className={classes.title} variant="h6">MyDiary</Typography>
+              <Hidden className={classes.title} implementation="css" xsDown>
+                <Typography variant="h6">MyDiary</Typography>
               </Hidden>
               <Link underline="none" href="/signup" color="inherit">
                 <Typography variant="h6">Get Started</Typography>
