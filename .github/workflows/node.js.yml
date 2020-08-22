@@ -26,4 +26,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: cd client && npm ci
     - run: cd client && npm run build --if-present
-    - run: cd client && npm test
+    - run: cd client && npm run coverage
