@@ -1,13 +1,14 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { render } from '@testing-library/react';
-import { AppTest } from '../App';
 
-describe('Home page should render in small and large screen', () => {
-  test('Renders landing page of app for large screen', () => {
+import App from '../App';
+
+describe('Home page should render', () => {
+  test('Renders landing page of app for large screens', () => {
     const { getByText } = render(
       <MemoryRouter initialEntries={['/']}>
-        <AppTest />
+        <App />
       </MemoryRouter>,
     );
 

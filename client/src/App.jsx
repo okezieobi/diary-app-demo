@@ -2,24 +2,16 @@ import React from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import Home from './components/Home';
 
-function AppTest() {
-  return (
-    <Switch>
-      <Route path="/">
-        <Home />
-      </Route>
-    </Switch>
-  );
-}
-
 function App() {
   return (
     <BrowserRouter>
-      <AppTest />
+      <Switch>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
     </BrowserRouter>
   );
 }
 
-export {
-  App, AppTest,
-};
+export default App;
