@@ -1,0 +1,20 @@
+{
+  "name": "diary-app-demo",
+  "version": "1.0.0",
+  "description": "MyDiary is an online journal where users can pen down their thoughts and feelings",
+  "main": "index.js",
+  "scripts": {
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okezieobi/diary-app-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/okezieobi/diary-app-demo/issues"
+  },
+  "homepage": "https://github.com/okezieobi/diary-app-demo#readme"
+}
