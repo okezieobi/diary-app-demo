@@ -7,7 +7,7 @@ import { AppTest } from '../App';
 describe('Signup page should render', () => {
   test('Renders signup page of app for large screens', () => {
     const { getByText } = render(
-      <MemoryRouter initialEntries={['/signup']} initialIndex={0}>
+      <MemoryRouter initialEntries={['/signup']}>
         <AppTest />
       </MemoryRouter>,
     );
