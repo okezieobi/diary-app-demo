@@ -5,9 +5,8 @@ import Home from './components/Home';
 import Signup from './components/Signup';
 import './App.css';
 
-function App() {
+function AppTest() {
   return (
-    <BrowserRouter>
       <Switch>
         <Route path="/signup">
           <Signup />
@@ -16,8 +15,15 @@ function App() {
           <Home />
         </Route>
       </Switch>
-    </BrowserRouter>
   );
 }
 
-export default App;
+function App() {
+  return (
+    <BrowserRouter>
+      <AppTest />
+    </BrowserRouter>
+  )
+}
+
+export { App, AppTest };
