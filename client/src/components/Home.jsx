@@ -70,7 +70,7 @@ export default function Home() {
   return (
     <>
       <CssBaseline />
-      <AuthHeader>
+      <AuthHeader href="/signup" headerLink="Get Started">
         <Container>
           <Box my={2}>
             <Grid container>

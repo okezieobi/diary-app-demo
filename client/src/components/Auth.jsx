@@ -48,7 +48,9 @@ ElevationScroll.propTypes = {
   window: PropTypes.func,
 };
 
-export default function Home({ window, children, headerLink }) {
+export default function Home({
+  window, children, headerLink, href,
+}) {
   const classes = useStyles();
 
   return (
@@ -64,7 +66,7 @@ export default function Home({ window, children, headerLink }) {
               <Hidden className={classes.title} implementation="css" xsDown>
                 <Typography variant="h6">MyDiary</Typography>
               </Hidden>
-              <Link underline="none" href="/signup" color="inherit">
+              <Link underline="none" href={href} color="inherit">
                 <Typography variant="h6">{headerLink}</Typography>
               </Link>
             </Toolbar>
@@ -85,9 +87,11 @@ Home.propTypes = {
   window: PropTypes.func,
   children: PropTypes.node.isRequired,
   headerLink: PropTypes.string,
+  href: PropTypes.string,
 };
 
 Home.defaultProps = {
   window: undefined,
-  headerLink: 'Get Started',
+  headerLink: '',
+  href: '/',
 };
