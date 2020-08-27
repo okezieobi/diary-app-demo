@@ -4,10 +4,14 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import Home from './components/Home';
 import Signup from './components/Signup';
 import Signin from './components/Signin';
+import HomeDash from './components/HomeDash';
 
 function AppTest() {
   return (
     <Switch>
+      <Route path="/dashboard">
+        <HomeDash />
+      </Route>
       <Route path="/signin">
         <Signin />
       </Route>

@@ -63,6 +63,9 @@ const useStyles = makeStyles((theme) => ({
   platinumFont: {
     color: 'gray',
   },
+  home: {
+    paddingBottom: theme.spacing(3),
+  },
 }));
 
 export default function Home() {
@@ -72,7 +75,7 @@ export default function Home() {
     <>
       <CssBaseline />
       <AuthHeader href="/signup" headerLink="Get Started">
-        <Container>
+        <Container className={classes.home}>
           <Box my={2}>
             <Grid container>
               <Grid item xs={12} className={`${classes.setBackground} ${classes.homeBackdrop2}`}>
