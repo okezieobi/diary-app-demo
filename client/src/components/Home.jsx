@@ -18,6 +18,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import { makeStyles } from '@material-ui/core/styles';
 
+import Copyright from './Copyright';
 import HomeBGOne from '../images/Home_1.svg';
 import HomeBGTwo from '../images/Home_2.svg';
 import HomeBGThree from '../images/Home_3.svg';
@@ -204,6 +205,9 @@ export default function Home() {
                 </Grid>
               </Grid>
             </Grid>
+          </Box>
+          <Box mt={5}>
+            <Copyright yourWebsite="My Diary App Demo" />
           </Box>
         </Container>
       </AuthHeader>

@@ -11,21 +11,8 @@ import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 
 import AuthHeader from './Auth';
+import Copyright from './Copyright';
 import SignupBG from '../images/Signup.svg';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>
-      {' '}
-      {new Date().getFullYear()}
-      .
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -134,7 +121,7 @@ export default function SignUp() {
             </form>
           </Paper>
           <Box mt={5}>
-            <Copyright />
+            <Copyright yourWebsite="My Diary App Demo" />
           </Box>
         </Container>
       </AuthHeader>
