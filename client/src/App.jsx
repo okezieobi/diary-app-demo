@@ -4,7 +4,7 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import Home from './components/layouts/Home';
 import Signup from './components/containers/Signup';
 import Signin from './components/containers/Signin';
-import HomeDash from './components/layouts/HomeDash';
+import HomeDash from './components/containers/HomeDash';
 
 function AppTest() {
   return (

@@ -1,11 +1,32 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+import MUIDataTable from 'mui-datatables';
 
-import HomeDashLayout from '../layouts/HomeDash';
+import Dashboard from '../layouts/Dashboard';
 
-export default function () {
+const columns = ['title', 'body', 'created on', 'updated on'];
+const options = {
+  filterType: 'checkbox',
+};
+
+export default function HomeDash() {
+  const history = useHistory();
+
+  const handleSubmit = () => {
+    history.push('/signin');
+  };
+
   return (
-    <>
-      <HomeDashLayout />
-    </>
+    <Dashboard
+      onClickDrawer={{
+        signout: () => handleSubmit(),
+      }}
+    >
+      <MUIDataTable
+        title="Entries"
+        columns={columns}
+        options={options}
+      />
+    </Dashboard>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -47,7 +48,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function Signin({
+  form: {
+    onEmailUsernameChange, onPasswordChange, handleSubmit,
+  },
+}) {
   const classes = useStyles();
 
   return (
@@ -65,11 +70,12 @@ export default function SignIn() {
                 margin="normal"
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+                id="email-username"
+                label="Email Address / Username"
+                name="email-username"
+                autoComplete="email-username"
                 autoFocus
+                onChange={onEmailUsernameChange}
               />
               <TextField
                 variant="outlined"
@@ -81,6 +87,7 @@ export default function SignIn() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={onPasswordChange}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -92,6 +99,7 @@ export default function SignIn() {
                 variant="contained"
                 color="primary"
                 className={classes.submit}
+                onClick={handleSubmit}
               >
                 Sign In
               </Button>
@@ -117,3 +125,7 @@ export default function SignIn() {
     </div>
   );
 }
+
+Signin.propTypes = {
+  form: PropTypes.objectOf.isRequired,
+};

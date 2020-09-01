@@ -12,6 +12,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import UserIcon from '@material-ui/icons/VerifiedUser';
+import SignoutIcon from '@material-ui/icons/PowerSettingsNew';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -56,7 +57,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Dashboard({ window, children }) {
+function Dashboard({
+  window, children, onClickDrawer: {
+    signout,
+  },
+}) {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -87,13 +92,17 @@ function Dashboard({ window, children }) {
       </div>
       <Divider />
       <List>
-        {[{ text: 'Home', icon: <HomeIcon /> },
-          { text: 'Profile', icon: <UserIcon /> }].map(({ text, icon }) => (
-            <ListItem button key={text}>
+        {
+          [{ text: 'Home', icon: <HomeIcon /> },
+            { text: 'Profile', icon: <UserIcon /> },
+            { text: 'Signout', icon: <SignoutIcon />, onClick: signout },
+          ].map(({ text, icon, onClick }) => (
+            <ListItem onClick={onClick} button key={text}>
               <ListItemIcon>{icon}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
-        ))}
+          ))
+}
       </List>
     </div>
   );
@@ -165,6 +174,7 @@ Dashboard.propTypes = {
    */
   window: PropTypes.func,
   children: PropTypes.node.isRequired,
+  onClickDrawer: PropTypes.objectOf.isRequired,
 };
 
 Dashboard.defaultProps = {
