@@ -13,9 +13,7 @@ export default function () {
   return (
     <>
       <SigninLayout
-        form={{
-          handleSubmit: () => handleSubmit(),
-        }}
+        handleSubmit={handleSubmit}
       />
     </>
   );

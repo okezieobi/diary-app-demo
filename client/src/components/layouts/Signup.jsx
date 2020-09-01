@@ -43,10 +43,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Signup({
-  form: {
-    trackFname, trackUsername,
-    trackEmail, trackPassword, handleSubmit,
-  },
+  trackFname, trackUsername,
+  trackEmail, trackPassword, handleSubmit,
 }) {
   const classes = useStyles();
 
@@ -142,5 +140,17 @@ export default function Signup({
 }
 
 Signup.propTypes = {
-  form: PropTypes.objectOf.isRequired,
+  trackFname: PropTypes.func,
+  trackUsername: PropTypes.func,
+  trackEmail: PropTypes.func,
+  trackPassword: PropTypes.func,
+  handleSubmit: PropTypes.func,
+};
+
+Signup.defaultProps = {
+  trackFname: undefined,
+  trackUsername: undefined,
+  trackEmail: undefined,
+  trackPassword: undefined,
+  handleSubmit: undefined,
 };

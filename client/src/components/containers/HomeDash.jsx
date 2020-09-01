@@ -18,9 +18,7 @@ export default function HomeDash() {
 
   return (
     <Dashboard
-      onClickDrawer={{
-        signout: () => handleSubmit(),
-      }}
+      signout={handleSubmit}
     >
       <MUIDataTable
         title="Entries"

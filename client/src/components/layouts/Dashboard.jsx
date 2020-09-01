@@ -58,9 +58,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Dashboard({
-  window, children, onClickDrawer: {
-    signout,
-  },
+  window, children, signout,
 }) {
   const classes = useStyles();
   const theme = useTheme();
@@ -174,7 +172,7 @@ Dashboard.propTypes = {
    */
   window: PropTypes.func,
   children: PropTypes.node.isRequired,
-  onClickDrawer: PropTypes.objectOf.isRequired,
+  signout: PropTypes.func.isRequired,
 };
 
 Dashboard.defaultProps = {

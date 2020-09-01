@@ -49,9 +49,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Signin({
-  form: {
-    onEmailUsernameChange, onPasswordChange, handleSubmit,
-  },
+  trackUsernameEmail, trackPassword, handleSubmit,
 }) {
   const classes = useStyles();
 
@@ -75,7 +73,7 @@ export default function Signin({
                 name="email-username"
                 autoComplete="email-username"
                 autoFocus
-                onChange={onEmailUsernameChange}
+                onChange={trackUsernameEmail}
               />
               <TextField
                 variant="outlined"
@@ -87,7 +85,7 @@ export default function Signin({
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                onChange={onPasswordChange}
+                onChange={trackPassword}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -127,5 +125,13 @@ export default function Signin({
 }
 
 Signin.propTypes = {
-  form: PropTypes.objectOf.isRequired,
+  trackUsernameEmail: PropTypes.func,
+  trackPassword: PropTypes.func,
+  handleSubmit: PropTypes.func,
+};
+
+Signin.defaultProps = {
+  trackUsernameEmail: undefined,
+  trackPassword: undefined,
+  handleSubmit: undefined,
 };
