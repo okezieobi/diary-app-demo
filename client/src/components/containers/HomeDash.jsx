@@ -18,17 +18,26 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const columns = ['title', 'body', 'created on', 'updated on'];
-const options = {
-  filterType: 'checkbox',
-};
-
 export default function HomeDash() {
   const history = useHistory();
   const classes = useStyles();
 
   const handleSubmit = () => {
     history.push('/signin');
+  };
+
+  const handleRowClick = () => {
+    history.push('/entry');
+  };
+
+  const columns = ['title', 'body', 'created on', 'updated on'];
+  const data = [
+    ['test title 1', 'test body 1', 'created on 1', 'updated on 1'],
+    ['test title 2', 'test body 2', 'created on 2', 'updated on 2'],
+  ];
+  const options = {
+    filterType: 'checkbox',
+    onRowClick: () => handleRowClick(),
   };
 
   return (
@@ -40,6 +49,7 @@ export default function HomeDash() {
           title="Entries"
           columns={columns}
           options={options}
+          data={data}
         />
       </Dashboard>
     </div>

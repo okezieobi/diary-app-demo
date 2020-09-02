@@ -7,7 +7,7 @@ export default function () {
   const history = useHistory();
 
   const handleSubmit = () => {
-    history.push('/dashboard');
+    history.push('/home');
   };
 
   return (

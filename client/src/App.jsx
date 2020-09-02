@@ -5,11 +5,15 @@ import Home from './components/layouts/Home';
 import Signup from './components/containers/Signup';
 import Signin from './components/containers/Signin';
 import HomeDash from './components/containers/HomeDash';
+import ContentDash from './components/containers/ContentDash';
 
 function AppTest() {
   return (
     <Switch>
-      <Route path="/dashboard">
+      <Route path="/entry">
+        <ContentDash />
+      </Route>
+      <Route path="/home">
         <HomeDash />
       </Route>
       <Route path="/signin">
