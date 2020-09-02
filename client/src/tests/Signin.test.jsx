@@ -4,8 +4,8 @@ import { render } from '@testing-library/react';
 
 import { AppTest } from '../App';
 
-describe('Signup page should render', () => {
-  test('Renders signup page of app for large screens', () => {
+describe('Signin page should render', () => {
+  test('Renders signin page of app for large screens', () => {
     const { getByText } = render(
       <MemoryRouter initialEntries={['/signin']}>
         <AppTest />
