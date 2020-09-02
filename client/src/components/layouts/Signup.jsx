@@ -32,8 +32,6 @@ const useStyles = makeStyles((theme) => ({
   },
   backdrop: {
     backgroundImage: `url(${SignupBG})`,
-  },
-  setBackground: {
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     width: '100vw',
@@ -49,7 +47,7 @@ export default function Signup({
   const classes = useStyles();
 
   return (
-    <div className={`${classes.setBackground} ${classes.backdrop}`}>
+    <div className={classes.backdrop}>
       <AuthHeader>
         <Container component="main" maxWidth="sm">
           <CssBaseline />
