@@ -11,9 +11,6 @@ const useStyles = makeStyles((theme) => ({
       right: theme.spacing(3),
     },
   },
-  extendedIcon: {
-    marginRight: theme.spacing(1),
-  },
 }));
 
 export default function FloatingActionButtons() {
@@ -21,9 +18,8 @@ export default function FloatingActionButtons() {
 
   return (
     <div className={classes.root}>
-      <Fab color="primary" variant="extended">
-        <EditIcon className={classes.extendedIcon} />
-        Compose
+      <Fab color="primary">
+        <EditIcon />
       </Fab>
     </div>
   );
