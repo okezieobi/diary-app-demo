@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -12,7 +13,7 @@ import Paper from '@material-ui/core/Paper';
 
 import AuthHeader from './Auth';
 import Copyright from './Copyright';
-import SignupBG from '../images/Signup.svg';
+import SignupBG from '../../images/Signup.svg';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -41,7 +42,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp() {
+export default function Signup({
+  trackFname, trackUsername,
+  trackEmail, trackPassword, handleSubmit,
+}) {
   const classes = useStyles();
 
   return (
@@ -55,27 +59,30 @@ export default function SignUp() {
             </Typography>
             <form className={classes.form} noValidate>
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12}>
                   <TextField
                     autoComplete="fname"
-                    name="firstName"
+                    name="fullName"
                     variant="outlined"
                     required
                     fullWidth
-                    id="firstName"
-                    label="First Name"
+                    id="fullName"
+                    label="Full Name"
                     autoFocus
+                    onChange={trackFname}
                   />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12}>
                   <TextField
+                    autoComplete="username"
+                    name="username"
                     variant="outlined"
                     required
                     fullWidth
-                    id="lastName"
-                    label="Last Name"
-                    name="lastName"
-                    autoComplete="lname"
+                    id="username"
+                    label="Username"
+                    autoFocus
+                    onChange={trackUsername}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -87,6 +94,7 @@ export default function SignUp() {
                     label="Email Address"
                     name="email"
                     autoComplete="email"
+                    onChange={trackEmail}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -99,6 +107,7 @@ export default function SignUp() {
                     type="password"
                     id="password"
                     autoComplete="current-password"
+                    onChange={trackPassword}
                   />
                 </Grid>
               </Grid>
@@ -108,6 +117,7 @@ export default function SignUp() {
                 variant="contained"
                 color="primary"
                 className={classes.submit}
+                onClick={handleSubmit}
               >
                 Sign Up
               </Button>
@@ -128,3 +138,19 @@ export default function SignUp() {
     </div>
   );
 }
+
+Signup.propTypes = {
+  trackFname: PropTypes.func,
+  trackUsername: PropTypes.func,
+  trackEmail: PropTypes.func,
+  trackPassword: PropTypes.func,
+  handleSubmit: PropTypes.func,
+};
+
+Signup.defaultProps = {
+  trackFname: undefined,
+  trackUsername: undefined,
+  trackEmail: undefined,
+  trackPassword: undefined,
+  handleSubmit: undefined,
+};

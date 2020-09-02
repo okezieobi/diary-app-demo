@@ -19,9 +19,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Copyright from './Copyright';
-import HomeBGOne from '../images/Home_1.svg';
-import HomeBGTwo from '../images/Home_2.svg';
-import HomeBGThree from '../images/Home_3.svg';
+import HomeBGOne from '../../images/Home_1.svg';
+import HomeBGTwo from '../../images/Home_2.svg';
+import HomeBGThree from '../../images/Home_3.svg';
 import AuthHeader from './Auth';
 
 const useStyles = makeStyles((theme) => ({
@@ -63,6 +63,9 @@ const useStyles = makeStyles((theme) => ({
   platinumFont: {
     color: 'gray',
   },
+  home: {
+    paddingBottom: theme.spacing(3),
+  },
 }));
 
 export default function Home() {
@@ -72,7 +75,7 @@ export default function Home() {
     <>
       <CssBaseline />
       <AuthHeader href="/signup" headerLink="Get Started">
-        <Container>
+        <Container className={classes.home}>
           <Box my={2}>
             <Grid container>
               <Grid item xs={12} className={`${classes.setBackground} ${classes.homeBackdrop2}`}>

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -14,7 +15,7 @@ import Paper from '@material-ui/core/Paper';
 
 import AuthHeader from './Auth';
 import Copyright from './Copyright';
-import SigninBG from '../images/Signin.svg';
+import SigninBG from '../../images/Signin.svg';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -47,7 +48,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function Signin({
+  trackUsernameEmail, trackPassword, handleSubmit,
+}) {
   const classes = useStyles();
 
   return (
@@ -65,11 +68,12 @@ export default function SignIn() {
                 margin="normal"
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+                id="email-username"
+                label="Email Address / Username"
+                name="email-username"
+                autoComplete="email-username"
                 autoFocus
+                onChange={trackUsernameEmail}
               />
               <TextField
                 variant="outlined"
@@ -81,6 +85,7 @@ export default function SignIn() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={trackPassword}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -92,6 +97,7 @@ export default function SignIn() {
                 variant="contained"
                 color="primary"
                 className={classes.submit}
+                onClick={handleSubmit}
               >
                 Sign In
               </Button>
@@ -117,3 +123,15 @@ export default function SignIn() {
     </div>
   );
 }
+
+Signin.propTypes = {
+  trackUsernameEmail: PropTypes.func,
+  trackPassword: PropTypes.func,
+  handleSubmit: PropTypes.func,
+};
+
+Signin.defaultProps = {
+  trackUsernameEmail: undefined,
+  trackPassword: undefined,
+  handleSubmit: undefined,
+};
