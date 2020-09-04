@@ -24,7 +24,7 @@ export default function HomeDash() {
   const history = useHistory();
   const classes = useStyles();
 
-  const handleSubmit = () => {
+  const handleLogout = () => {
     history.push('/signin');
   };
 
@@ -45,20 +45,22 @@ export default function HomeDash() {
   };
 
   return (
-    <div className={classes.backdrop}>
+    <>
       <Dashboard
-        signout={handleSubmit}
+        signout={handleLogout}
       >
-        <MUIDataTable
-          title="Entries"
-          columns={columns}
-          options={options}
-          data={data}
-        />
-        <Hidden implementation="css" smUp>
-          <HomeFab />
-        </Hidden>
+        <div className={classes.backdrop}>
+          <MUIDataTable
+            title="Entries"
+            columns={columns}
+            options={options}
+            data={data}
+          />
+          <Hidden implementation="css" smUp>
+            <HomeFab />
+          </Hidden>
+        </div>
       </Dashboard>
-    </div>
+    </>
   );
 }

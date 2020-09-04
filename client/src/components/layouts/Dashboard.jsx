@@ -90,17 +90,18 @@ function Dashboard({
       </div>
       <Divider />
       <List>
-        {
-          [{ text: 'Home', icon: <HomeIcon /> },
-            { text: 'Profile', icon: <UserIcon /> },
-            { text: 'Signout', icon: <SignoutIcon />, onClick: signout },
-          ].map(({ text, icon, onClick }) => (
-            <ListItem onClick={onClick} button key={text}>
-              <ListItemIcon>{icon}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))
-}
+        <ListItem button key="Home">
+          <ListItemIcon><HomeIcon /></ListItemIcon>
+          <ListItemText primary="Home" />
+        </ListItem>
+        <ListItem button key="Profile">
+          <ListItemIcon><UserIcon /></ListItemIcon>
+          <ListItemText primary="Profile" />
+        </ListItem>
+        <ListItem onClick={signout} button key="Signout">
+          <ListItemIcon><SignoutIcon /></ListItemIcon>
+          <ListItemText primary="Signout" />
+        </ListItem>
       </List>
     </div>
   );
