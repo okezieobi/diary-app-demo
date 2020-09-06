@@ -17,6 +17,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 const drawerWidth = 240;
@@ -92,11 +93,15 @@ function Dashboard({
       <List>
         <ListItem button key="Home">
           <ListItemIcon><HomeIcon /></ListItemIcon>
-          <ListItemText primary="Home" />
+          <ListItemText>
+            <Link underline="none" href="/home" color="inherit">Home</Link>
+          </ListItemText>
         </ListItem>
         <ListItem button key="Profile">
           <ListItemIcon><UserIcon /></ListItemIcon>
-          <ListItemText primary="Profile" />
+          <ListItemText>
+            <Link underline="none" href="/profile" color="inherit">Profile</Link>
+          </ListItemText>
         </ListItem>
         <ListItem onClick={signout} button key="Signout">
           <ListItemIcon><SignoutIcon /></ListItemIcon>

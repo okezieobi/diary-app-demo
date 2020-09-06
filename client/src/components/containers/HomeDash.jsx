@@ -28,7 +28,9 @@ export default function HomeDash() {
     history.push('/signin');
   };
 
-  const handleRowClick = () => {
+  const handleRowClick = (row = []) => {
+    const clickedRow = JSON.stringify(row);
+    localStorage.setItem('clickedRow', clickedRow);
     history.push('/entry');
   };
 
@@ -41,7 +43,7 @@ export default function HomeDash() {
   ];
   const options = {
     filterType: 'checkbox',
-    onRowClick: () => handleRowClick(),
+    onRowClick: (rowData) => handleRowClick(rowData),
   };
 
   return (
