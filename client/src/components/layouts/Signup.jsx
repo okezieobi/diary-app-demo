@@ -117,7 +117,7 @@ export default function Signup({
                 className={classes.submit}
                 onClick={handleSubmit}
               >
-                Sign Up
+                Submit
               </Button>
               <Grid container justify="flex-end">
                 <Grid item>

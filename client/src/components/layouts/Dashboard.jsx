@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -17,7 +18,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 const drawerWidth = 240;
@@ -59,11 +59,24 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Dashboard({
-  window, children, signout,
+  window, children, homeSelect, profileSelect,
 }) {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const history = useHistory();
+  const handleLogout = () => {
+    history.push('/signin');
+  };
+
+  const clickHome = () => {
+    history.push('/home');
+  };
+
+  const clickProfile = () => {
+    history.push('/profile');
+  };
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -91,19 +104,15 @@ function Dashboard({
       </div>
       <Divider />
       <List>
-        <ListItem button key="Home">
+        <ListItem button selected={homeSelect} onClick={clickHome} key="Home">
           <ListItemIcon><HomeIcon /></ListItemIcon>
-          <ListItemText>
-            <Link underline="none" href="/home" color="inherit">Home</Link>
-          </ListItemText>
+          <ListItemText>Home</ListItemText>
         </ListItem>
-        <ListItem button key="Profile">
+        <ListItem button selected={profileSelect} onClick={clickProfile} key="Profile">
           <ListItemIcon><UserIcon /></ListItemIcon>
-          <ListItemText>
-            <Link underline="none" href="/profile" color="inherit">Profile</Link>
-          </ListItemText>
+          <ListItemText>Profile</ListItemText>
         </ListItem>
-        <ListItem onClick={signout} button key="Signout">
+        <ListItem onClick={handleLogout} button key="Signout">
           <ListItemIcon><SignoutIcon /></ListItemIcon>
           <ListItemText primary="Signout" />
         </ListItem>
@@ -178,11 +187,14 @@ Dashboard.propTypes = {
    */
   window: PropTypes.func,
   children: PropTypes.node.isRequired,
-  signout: PropTypes.func.isRequired,
+  homeSelect: PropTypes.bool,
+  profileSelect: PropTypes.bool,
 };
 
 Dashboard.defaultProps = {
   window: undefined,
+  homeSelect: false,
+  profileSelect: false,
 };
 
 export default Dashboard;

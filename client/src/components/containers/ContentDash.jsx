@@ -3,7 +3,6 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Dashboard from '../layouts/Dashboard';
@@ -16,54 +15,56 @@ const useStyles = makeStyles((theme) => ({
 
 export default function () {
   const classes = useStyles();
-  const history = useHistory();
-  const [title, body, createdOn, updatedOn] = JSON.parse(localStorage.getItem('clickedRow'));
-
-  const handleLogout = () => {
-    history.push('/signin');
-  };
+  const rowData = JSON.parse(localStorage.getItem('clickedRow'));
 
   return (
-    <Dashboard
-      signout={handleLogout}
-    >
+    <Dashboard homeSelect>
       <Paper className={classes.paper}>
         <Grid container spacing={4}>
           <Grid item xs={12}>
             <Typography variant="h4" gutterBottom>
               Title:
               <br />
-              {title}
+              {rowData ? rowData[0] : ''}
             </Typography>
           </Grid>
           <Grid item xs={12}>
             <Typography variant="body1" gutterBottom>
               Body:
               <br />
-              {body}
+              {rowData ? rowData[1] : ''}
             </Typography>
           </Grid>
           <Grid item xs={6}>
             <Typography variant="body1" gutterBottom>
               Created On:
               <br />
-              {createdOn}
+              {rowData ? rowData[2] : ''}
             </Typography>
           </Grid>
           <Grid item xs={6}>
             <Typography variant="body1" gutterBottom>
               Updated On:
               <br />
-              {updatedOn}
+              {rowData ? rowData[3] : ''}
             </Typography>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={6}>
             <Button
               fullWidth
               variant="contained"
               color="primary"
             >
               Edit
+            </Button>
+          </Grid>
+          <Grid item xs={6}>
+            <Button
+              fullWidth
+              variant="contained"
+              color="secondary"
+            >
+              Back
             </Button>
           </Grid>
         </Grid>

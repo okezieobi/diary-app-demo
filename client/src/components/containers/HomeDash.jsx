@@ -24,10 +24,6 @@ export default function HomeDash() {
   const history = useHistory();
   const classes = useStyles();
 
-  const handleLogout = () => {
-    history.push('/signin');
-  };
-
   const handleRowClick = (row = []) => {
     const clickedRow = JSON.stringify(row);
     localStorage.setItem('clickedRow', clickedRow);
@@ -48,9 +44,7 @@ export default function HomeDash() {
 
   return (
     <>
-      <Dashboard
-        signout={handleLogout}
-      >
+      <Dashboard homeSelect>
         <div className={classes.backdrop}>
           <MUIDataTable
             title="Entries"
