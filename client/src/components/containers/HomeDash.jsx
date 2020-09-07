@@ -14,8 +14,8 @@ const useStyles = makeStyles(() => ({
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     backgroundAttachment: 'fixed',
-    width: '100vw',
-    height: '100vh',
+    width: '100%',
+    height: '100%',
     backgroundSize: 'cover',
   },
 }));
@@ -44,7 +44,7 @@ export default function HomeDash() {
 
   return (
     <>
-      <Dashboard homeSelect>
+      <Dashboard>
         <div className={classes.backdrop}>
           <MUIDataTable
             title="Entries"
