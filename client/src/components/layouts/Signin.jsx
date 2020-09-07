@@ -38,8 +38,6 @@ const useStyles = makeStyles((theme) => ({
   },
   backdrop: {
     backgroundImage: `url(${SigninBG})`,
-  },
-  setBackground: {
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     width: '100vw',
@@ -54,7 +52,7 @@ export default function Signin({
   const classes = useStyles();
 
   return (
-    <div className={`${classes.setBackground} ${classes.backdrop}`}>
+    <div className={classes.backdrop}>
       <AuthHeader>
         <Container component="main" maxWidth="sm">
           <CssBaseline />
@@ -99,7 +97,7 @@ export default function Signin({
                 className={classes.submit}
                 onClick={handleSubmit}
               >
-                Sign In
+                Submit
               </Button>
               <Grid container>
                 <Grid item xs>

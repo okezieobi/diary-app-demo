@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -58,11 +59,24 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Dashboard({
-  window, children, signout,
+  window, children, homeSelect, profileSelect,
 }) {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const history = useHistory();
+  const handleLogout = () => {
+    history.push('/signin');
+  };
+
+  const clickHome = () => {
+    history.push('/home');
+  };
+
+  const clickProfile = () => {
+    history.push('/profile');
+  };
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -90,17 +104,18 @@ function Dashboard({
       </div>
       <Divider />
       <List>
-        {
-          [{ text: 'Home', icon: <HomeIcon /> },
-            { text: 'Profile', icon: <UserIcon /> },
-            { text: 'Signout', icon: <SignoutIcon />, onClick: signout },
-          ].map(({ text, icon, onClick }) => (
-            <ListItem onClick={onClick} button key={text}>
-              <ListItemIcon>{icon}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))
-}
+        <ListItem button selected={homeSelect} onClick={clickHome} key="Home">
+          <ListItemIcon><HomeIcon /></ListItemIcon>
+          <ListItemText>Home</ListItemText>
+        </ListItem>
+        <ListItem button selected={profileSelect} onClick={clickProfile} key="Profile">
+          <ListItemIcon><UserIcon /></ListItemIcon>
+          <ListItemText>Profile</ListItemText>
+        </ListItem>
+        <ListItem onClick={handleLogout} button key="Signout">
+          <ListItemIcon><SignoutIcon /></ListItemIcon>
+          <ListItemText primary="Signout" />
+        </ListItem>
       </List>
     </div>
   );
@@ -172,11 +187,14 @@ Dashboard.propTypes = {
    */
   window: PropTypes.func,
   children: PropTypes.node.isRequired,
-  signout: PropTypes.func.isRequired,
+  homeSelect: PropTypes.bool,
+  profileSelect: PropTypes.bool,
 };
 
 Dashboard.defaultProps = {
   window: undefined,
+  homeSelect: false,
+  profileSelect: false,
 };
 
 export default Dashboard;
