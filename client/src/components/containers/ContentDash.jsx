@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -14,8 +15,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function () {
+  const history = useHistory();
   const classes = useStyles();
   const rowData = JSON.parse(localStorage.getItem('clickedRow'));
+
+  const handleEditClick = () => {
+    history.push('/home/entry/compose');
+  };
 
   return (
     <Dashboard homeSelect>
@@ -54,6 +60,7 @@ export default function () {
               fullWidth
               variant="contained"
               color="primary"
+              onClick={handleEditClick}
             >
               Edit
             </Button>

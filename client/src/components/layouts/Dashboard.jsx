@@ -78,6 +78,10 @@ function Dashboard({
     history.push('/profile');
   };
 
+  const handleCompose = () => {
+    history.push('/home/entry/compose');
+  };
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -96,6 +100,7 @@ function Dashboard({
               fullWidth
               variant="contained"
               color="primary"
+              onClick={handleCompose}
             >
               Compose
             </Button>

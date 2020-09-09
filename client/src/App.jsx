@@ -6,11 +6,15 @@ import Signup from './components/containers/Signup';
 import Signin from './components/containers/Signin';
 import HomeDash from './components/containers/HomeDash';
 import ContentDash from './components/containers/ContentDash';
+import ComposeForm from './components/containers/Compose';
 
 function AppTest() {
   return (
     <Switch>
-      <Route path="/entry">
+      <Route path="/home/entry/compose">
+        <ComposeForm />
+      </Route>
+      <Route path="/home/entry">
         <ContentDash />
       </Route>
       <Route path="/home">
