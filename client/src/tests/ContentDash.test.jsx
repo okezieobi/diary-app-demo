@@ -7,7 +7,7 @@ import { AppTest } from '../App';
 describe('Home dashboard page should render', () => {
   test('Renders diary content for large screens', () => {
     const { getByText } = render(
-      <MemoryRouter initialEntries={['/entry']}>
+      <MemoryRouter initialEntries={['/home/entry']}>
         <AppTest />
       </MemoryRouter>,
     );
