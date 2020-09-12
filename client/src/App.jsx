@@ -8,10 +8,14 @@ import HomeDash from './components/containers/HomeDash';
 import ContentDash from './components/containers/ContentDash';
 import ComposeForm from './components/containers/Compose';
 import EditForm from './components/containers/Edit';
+import Profile from './components/containers/Profile';
 
 function AppTest() {
   return (
     <Switch>
+      <Route path="/profile">
+        <Profile />
+      </Route>
       <Route path="/home/entry/edit">
         <EditForm />
       </Route>
