@@ -27,7 +27,11 @@ export default function HomeDash() {
   const handleRowClick = (row = []) => {
     const clickedRow = JSON.stringify(row);
     localStorage.setItem('clickedRow', clickedRow);
-    history.push('/entry');
+    history.push('/home/entry');
+  };
+
+  const handleFabClick = () => {
+    history.push('/home/entry/compose');
   };
 
   const columns = ['title', 'body', 'created on', 'updated on'];
@@ -44,7 +48,7 @@ export default function HomeDash() {
 
   return (
     <>
-      <Dashboard>
+      <Dashboard homeSelect>
         <div className={classes.backdrop}>
           <MUIDataTable
             title="Entries"
@@ -53,7 +57,7 @@ export default function HomeDash() {
             data={data}
           />
           <Hidden implementation="css" smUp>
-            <HomeFab />
+            <HomeFab handleClick={handleFabClick} />
           </Hidden>
         </div>
       </Dashboard>

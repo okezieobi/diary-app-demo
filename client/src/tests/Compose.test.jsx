@@ -7,11 +7,11 @@ import { AppTest } from '../App';
 describe('Home dashboard page should render', () => {
   test('Renders diary content for large screens', () => {
     const { getByText } = render(
-      <MemoryRouter initialEntries={['/home/entry']}>
+      <MemoryRouter initialEntries={['/home/entry/compose']}>
         <AppTest />
       </MemoryRouter>,
     );
 
-    expect(getByText(/Edit/)).toBeInTheDocument();
+    expect(getByText(/Submit/)).toBeInTheDocument();
   });
 });
