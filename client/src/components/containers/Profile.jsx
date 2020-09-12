@@ -24,19 +24,22 @@ export default function () {
             <Avatar />
           </Grid>
           <Grid item xs={12}>
-            <Typography>Full Name:</Typography>
+            <Typography variant="h6" gutterBottom>Full Name:</Typography>
           </Grid>
           <Grid item xs={12}>
-            <Typography>Email</Typography>
+            <Typography variant="h6" gutterBottom>Email</Typography>
           </Grid>
           <Grid item xs={12}>
-            <Typography>Username</Typography>
+            <Typography variant="h6" gutterBottom>Username</Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="h6" gutterBottom>Number of entries:</Typography>
           </Grid>
           <Grid item xs={6}>
-            <Typography>Created on:</Typography>
+            <Typography variant="h6" gutterBottom>Created on:</Typography>
           </Grid>
           <Grid item xs={6}>
-            <Typography>Updated on:</Typography>
+            <Typography variant="h6" gutterBottom>Updated on:</Typography>
           </Grid>
         </Grid>
       </Paper>
