@@ -20,7 +20,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function HomeDash() {
+export default function () {
   const history = useHistory();
   const classes = useStyles();
 
