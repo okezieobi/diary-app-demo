@@ -7,10 +7,14 @@ import Signin from './components/containers/Signin';
 import HomeDash from './components/containers/HomeDash';
 import ContentDash from './components/containers/ContentDash';
 import ComposeForm from './components/containers/Compose';
+import EditForm from './components/containers/Edit';
 
 function AppTest() {
   return (
     <Switch>
+      <Route path="/home/entry/edit">
+        <EditForm />
+      </Route>
       <Route path="/home/entry/compose">
         <ComposeForm />
       </Route>
