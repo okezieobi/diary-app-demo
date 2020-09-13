@@ -6,6 +6,7 @@ import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Dashboard from '../layouts/Dashboard';
+import Switch from '../layouts/Switch';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -35,11 +36,21 @@ export default function () {
           <Grid item xs={12}>
             <Typography variant="h6" gutterBottom>Number of entries:</Typography>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item md={6} xs={12}>
             <Typography variant="h6" gutterBottom>Created on:</Typography>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item md={6} xs={12}>
             <Typography variant="h6" gutterBottom>Updated on:</Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Grid container>
+              <Grid item md={6} xs={12}>
+                <Typography variant="h6" gutterBottom>Set reminder</Typography>
+              </Grid>
+              <Grid item md={6} xs={12}>
+                <Switch />
+              </Grid>
+            </Grid>
           </Grid>
         </Grid>
       </Paper>

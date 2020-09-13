@@ -13,5 +13,6 @@ describe('Home dashboard page should render', () => {
     );
 
     expect(getByText(/Number of entries/)).toBeInTheDocument();
+    expect(getByText(/Set reminder/)).toBeInTheDocument();
   });
 });
