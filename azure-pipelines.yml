@@ -1,7 +1,4 @@
 # Node.js
-- task: ReviewApp@0
-  inputs:
-    resourceName: 'dairy-app-demo-review'
 # Build a general Node.js project with npm.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
@@ -13,6 +10,9 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: ReviewApp@0
+  inputs:
+    resourceName: 'review-app'
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
