@@ -7,8 +7,7 @@
     "release": "npm run clean && npm run build-app && npm run start",
     "clean": "rm -rf dist && mkdir dist",
     "build": "npm run clean && npm run build-app",
-    "build-app": "babel src -s -d dist --presets=@babel/env",
-    "start": "node dist/bin/www.js"
+    "build-app": "babel src -s -d dist --presets=@babel/env"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
